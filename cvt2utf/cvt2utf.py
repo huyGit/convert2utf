@@ -38,8 +38,8 @@ class Convert2Utf8:
                 extension = os.path.splitext(name)[1][1:].strip().lower()
                 # On linux there is a newline at the end which will cause the match to fail, so we just 'strip()' the '\n'
                 # Also, add 'lower()' to ensure matching
-
-                if (extension in self.args.exts):
+                
+                if ( ('all' in self.args.exts) or (extension in self.args.exts)):
                     fullname = os.path.join(root, name)
                     try:
                         self.convert_file(fullname)
